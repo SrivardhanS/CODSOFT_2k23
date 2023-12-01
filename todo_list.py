@@ -1,3 +1,5 @@
+# run the code in any IDE like VS code to run the program.
+# Using this code we can create a set of tasks and perform the following actions: add, list, mark,unmark, delete, edit, quit
 def print_task(ind,task):
 
     print(f"[{ind}{'✓' if task['completed'] else '☐'} {task['description']}")
@@ -63,7 +65,7 @@ while True:
         mark_task_as_not_completed(task_index)
 
     elif action == "delete":
-        # fix what happens if the index in out of range
+        # fix what happens if the index is out of range
         task_index = int(input("Enter task index: "))
         while task_index >maxi:
             print("Index is out of range, please enter the looking available in the tasks")
