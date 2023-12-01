@@ -33,28 +33,49 @@ def edit_task(task_index, new_description):
 tasks = []
 
 while True:
-    action = input("Enter an action (add, list, mark,unmark, delete, edit, quit): ")
+    maxi = len(tasks)-1
 
+    action = input("Enter an action (add, list, mark,unmark, delete, edit, quit): ")
+    
     if action == "add":
         task_description = input("Enter task description: ")
         add_task(task_description)
+
     elif action == "list":
         print_tasks()
+
     elif action == "mark":
         print_tasks()
         task_index = int(input("Enter task index: "))
+        while task_index >maxi:
+            print("Index is out of range, please enter the looking available in the tasks")
+            task_index = int(input("Enter task index: "))
+            
         mark_task_as_completed(task_index)
+
     elif action == "unmark":
         print_tasks()
-        task_index = int(input("Enter task index: "))    
+        task_index = int(input("Enter task index: "))   
+        while task_index >maxi:
+            print("Index is out of range, please enter the looking available in the tasks")
+            task_index = int(input("Enter task index: "))
+
         mark_task_as_not_completed(task_index)
 
     elif action == "delete":
         # fix what happens if the index in out of range
         task_index = int(input("Enter task index: "))
+        while task_index >maxi:
+            print("Index is out of range, please enter the looking available in the tasks")
+            task_index = int(input("Enter task index: "))
+
         delete_task(task_index)
+
     elif action == "edit":
         task_index = int(input("Enter task index: "))
+        while task_index >maxi:
+            print("Index is out of range, please enter the looking available in the tasks")
+            task_index = int(input("Enter task index: "))
         new_description = input("Enter new task description: ")
         edit_task(task_index, new_description)
     elif action == "quit":
