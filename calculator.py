@@ -77,22 +77,22 @@ class Calculator:
 calculator = Calculator()
 
 while True:
-    action = input("Enter an action: +, -, *, /, sin, cos, tan, sec, csc, cot, sqrt, pow, log, quit: ")
-    if action == "quit":
+    operation = input("Enter an operation: +, -, *, /, sin, cos, tan, sec, csc, cot, sqrt, pow, log, quit: ")
+    if operation == "quit":
         break
     try:
         f = float(input("Enter the 1st value: "))
     except ValueError:
         print("Invalid input. Please enter a number.")
         continue
-    if action in ['+', '-', '*', '/', 'pow', 'log']:
+    if operation in ['+', '-', '*', '/', 'pow', 'log']:
         try:
             s = float(input("Enter the 2nd value: "))
         except ValueError:
             print("Invalid input. Please enter a number.")
             continue
-        calculator.set_values(action, f, s)
+        calculator.set_values(operation, f, s)
     else:
-        calculator.set_values(action, f)
+        calculator.set_values(operation, f)
     calculator.calculate()  # Call the calculate method to perform the calculation
     
